@@ -106,6 +106,36 @@ body {
   color: var(--primary-color);
 }
 
+.github-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: #ffffff;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.github-icon-link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(157, 36, 54, 0.08);
+  transform: translateY(-1px);
+}
+
+.github-icon-link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.header-nav .github-icon-link {
+  margin-block: -0.55rem;
+}
+
 .gallery-hero {
   position: relative;
   overflow: hidden;
