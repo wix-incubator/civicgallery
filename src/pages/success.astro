@@ -4,13 +4,16 @@ import SuccessMessage from "../components/SuccessMessage.astro";
 import Button from "../components/Button.astro";
 ---
 
-<Layout title="Registration Successful | Soccer Tournament">
-  <div class="max-w-2xl mx-auto py-8">
+<Layout
+  title="Reservation Received | Civic Gallery"
+  description="Civic Gallery registration confirmation."
+>
+  <div class="success-page site-shell">
     <SuccessMessage
-      title="Registration Complete!"
-      message="Your team has been successfully registered for the soccer tournament. You will receive a confirmation email with further details shortly."
+      title="Reservation received."
+      message="Your gallery registration has been submitted through Wix Headless. The visitor desk can now review your event selection, contact details, and access notes."
     >
-      <div class="mt-6">
+      <div class="success-actions">
         <a href="/" class="inline-block">
           <Button variant="primary">Return to Home</Button>
         </a>

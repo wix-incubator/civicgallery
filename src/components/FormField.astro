@@ -35,10 +35,10 @@ const {
 } = Astro.props;
 ---
 
-<div class="form-field hover:bg-[#f9fafb]/50 transition-colors duration-200">
-  <label for={id} class="form-label font-normal">
+<div class="form-field">
+  <label for={id} class="form-label">
     {label}
-    {required && <span style="color: var(--error-color, #E21E1E);">*</span>}
+    {required && <span class="required-mark">*</span>}
   </label>
 
   {
@@ -69,7 +69,7 @@ const {
               class="form-radio mr-2"
               required={required}
             />
-            <label for={`${id}-${option.value}`} class="text-[0.875rem] text-[#374151]">
+            <label for={`${id}-${option.value}`} class="choice-label">
               {option.label}
             </label>
           </div>
@@ -85,7 +85,7 @@ const {
           required={required}
           checked={checked}
         />
-        <label for={id} class="text-[0.875rem] text-[#374151]">
+        <label for={id} class="choice-label">
           {placeholder}
         </label>
       </div>

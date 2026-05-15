@@ -4,7 +4,10 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Soccer Tournament Registration Form" } = Astro.props;
+const {
+  title,
+  description = "Civic Gallery exhibition and event registration powered by Wix Headless forms",
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,21 +20,29 @@ const { title, description = "Soccer Tournament Registration Form" } = Astro.pro
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="civic-site">
     <div class="min-h-screen flex flex-col">
-      <header class="text-[#ffffff] py-4" style="background-color: var(--primary-color, #3899EC);">
-        <div class="container mx-auto px-4">
-          <h1 class="text-2xl font-bold">Soccer Tournament Registration</h1>
+      <header class="site-header">
+        <div class="site-shell header-inner">
+          <a href="/" class="brand-lockup" aria-label="Civic Gallery home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>Civic Gallery</span>
+          </a>
+          <nav class="header-nav" aria-label="Gallery navigation">
+            <a href="/#exhibitions">Exhibitions</a>
+            <a href="/#registration">Register</a>
+          </nav>
         </div>
       </header>
       
-      <main class="grow container mx-auto px-4 py-8">
+      <main class="grow">
         <slot />
       </main>
       
-      <footer class="bg-[#f3f4f6] py-4 mt-auto">
-        <div class="container mx-auto px-4 text-center text-[#4b5563] text-[0.875rem]">
-          &copy; {new Date().getFullYear()} Soccer Tournament Registration. All rights reserved.
+      <footer class="site-footer mt-auto">
+        <div class="site-shell footer-inner">
+          <span>&copy; {new Date().getFullYear()} Civic Gallery</span>
+          <span>Event registration and visitor responses are handled with Wix Headless.</span>
         </div>
       </footer>
     </div>

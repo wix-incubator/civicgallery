@@ -3,15 +3,93 @@ import Layout from "../layouts/Layout.astro";
 import TournamentRegistrationForm from "../components/TournamentRegistrationForm.astro";
 ---
 
-<Layout title="Soccer Tournament Registration">
-  <div class="max-w-4xl mx-auto">
-    <div class="mb-8 text-center">
-      <h1 class="text-3xl font-medium mb-3 text-[#20455E]">Soccer Tournament Registration</h1>
-      <p class="text-gray-500 max-w-xl mx-auto text-sm">
-        Fill out the form below to register your team for the upcoming soccer tournament.
-      </p>
+<Layout
+  title="Civic Gallery Event Registration"
+  description="Register for Civic Gallery exhibitions, curator talks, and member previews using Wix Headless forms."
+>
+  <section class="gallery-hero">
+    <div class="site-shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">New season - exhibitions, talks, workshops</p>
+        <h1>Civic Gallery</h1>
+        <p class="hero-lede">
+          Reserve space for opening nights, guided tours, artist conversations,
+          and family studio sessions across the gallery calendar.
+        </p>
+        <div class="hero-actions" aria-label="Gallery actions">
+          <a href="#registration" class="action-primary">Reserve a visit</a>
+          <a href="#exhibitions" class="action-secondary">See events</a>
+        </div>
+      </div>
+
+      <div class="exhibition-wall" aria-label="Gallery exhibition preview">
+        <div class="art-piece tall">
+          <span>North Hall</span>
+        </div>
+        <div class="art-piece red">
+          <span>Opening Night</span>
+        </div>
+        <div class="art-piece blue">
+          <span>Curator Talk</span>
+        </div>
+        <div class="wall-caption">
+          Wix Headless gives the gallery a custom visitor-facing site while
+          event registrations arrive as structured Wix Forms submissions for
+          staff review, capacity planning, and follow-up.
+        </div>
+      </div>
     </div>
-    
-    <TournamentRegistrationForm />
-  </div>
+  </section>
+
+  <section id="exhibitions" class="exhibition-section">
+    <div class="site-shell">
+      <div class="section-heading">
+        <p class="eyebrow">On the calendar</p>
+        <h2>One registration path for the many ways people visit.</h2>
+      </div>
+      <div class="event-list">
+        <article>
+          <time datetime="2026-06-04">Jun 04</time>
+          <div>
+            <h3>Member Preview: Common Ground</h3>
+            <p>Private evening access with timed entry and capacity-aware guest capture.</p>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-06-18">Jun 18</time>
+          <div>
+            <h3>Curator Talk: City Materials</h3>
+            <p>Collect attendee details, accessibility needs, and preferred event format.</p>
+          </div>
+        </article>
+        <article>
+          <time datetime="2026-07-09">Jul 09</time>
+          <div>
+            <h3>Family Studio: Print Lab</h3>
+            <p>Use Wix Forms data to prepare groups, workshop supplies, and reminders.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="registration" class="registration-section">
+    <div class="site-shell registration-grid">
+      <aside class="registration-copy">
+        <p class="eyebrow">Registration</p>
+        <h2>Reserve an exhibition experience.</h2>
+        <p>
+          Civic Gallery can keep its public site art-directed and responsive
+          while Wix Headless handles the registration record, validation, and
+          success routing.
+        </p>
+        <div class="visitor-note">
+          <span>Visitor desk</span>
+          <strong>Groups, members, and public programs</strong>
+        </div>
+      </aside>
+
+      <TournamentRegistrationForm class="gallery-registration-form" />
+    </div>
+  </section>
 </Layout>

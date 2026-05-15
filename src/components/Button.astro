@@ -12,17 +12,16 @@ const {
 } = Astro.props;
 
 const variantClasses = {
-  primary: 'text-[#ffffff] hover:opacity-90',
-  secondary: 'text-[#162D3D] bg-[#EAF7FF] hover:bg-[#DAEFFE] border border-[#3899EC]',
+  primary: "button-primary",
+  secondary: "button-secondary",
 };
 
-const classes = `px-5 py-2 transition-colors duration-200 font-medium text-[0.875rem] rounded-sm ${variantClasses[variant]} ${className}`;
+const classes = `site-button ${variantClasses[variant]} ${className}`;
 ---
 
 <button 
   type={type} 
   class={classes}
-  style={variant === 'primary' ? 'background-color: var(--primary-color, #3899EC);' : ''}
 >
   <slot />
 </button>

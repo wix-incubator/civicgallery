@@ -24,23 +24,31 @@ const formFieldsSettings = wixForm.formFields
       return acc;
     },
     {},
-  );
+  ) || {};
+
+const optionsFor = (fieldId: FormFieldsWixIds, fallbacks: Array<{ value: string; label: string }>) =>
+  formFieldsSettings[fieldId]?.stringOptions
+    ?.dropdownOptions?.options?.map((option: any) => ({
+      value: option.value || option.label || "",
+      label: option.label || option.value || "",
+    })) || fallbacks;
 ---
 
 <form
   id="tournament-form"
-  class={`form-container shadow-none ${className}`}
+  class={`form-container ${className}`}
   method="POST"
 >
-  <div
-    class="mb-8 border-t-8 border-[#3899EC] rounded-lg pt-6 px-6 pb-6 bg-[#ffffff] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] shadow-[#e5e7eb]"
-  >
-    <h2 class="text-xl font-medium mb-4 text-[#3899EC]">Team Information</h2>
+  <div class="form-section form-section-primary">
+    <div class="form-section-header">
+      <span>01</span>
+      <h2>Visit Details</h2>
+    </div>
 
     <FormField
       id={FormFieldsWixIds.teamName}
-      label={formFieldsSettings[FormFieldsWixIds.teamName]?.stringOptions
-        ?.textInputOptions?.label || "Team Name"}
+      label="Attendee, member, or group name"
+      placeholder="Name for the reservation"
       required={formFieldsSettings[FormFieldsWixIds.teamName]?.required || false}
     />
 
@@ -48,48 +56,45 @@ const formFieldsSettings = wixForm.formFields
       <FormField
         type="select"
         id={FormFieldsWixIds.ageGroup}
-        label={formFieldsSettings[FormFieldsWixIds.ageGroup]?.stringOptions
-          ?.dropdownOptions?.label || "Age Group"}
+        label="Event type"
         required={formFieldsSettings[FormFieldsWixIds.ageGroup]?.required || false}
-        options={formFieldsSettings[FormFieldsWixIds.ageGroup]?.stringOptions
-          ?.dropdownOptions?.options?.map((option: any) => ({
-            value: option.value || option.label || "",
-            label: option.label || option.value || ""
-          }))}
+        options={optionsFor(FormFieldsWixIds.ageGroup, [
+          { value: "opening", label: "Opening night" },
+          { value: "tour", label: "Guided tour" },
+          { value: "workshop", label: "Workshop" },
+        ])}
       />
 
       <FormField
         type="select"
         id={FormFieldsWixIds.skillLevel}
-        label={formFieldsSettings[FormFieldsWixIds.skillLevel]?.stringOptions
-          ?.dropdownOptions?.label || "Skill Level"}
+        label="Visit format"
         required={formFieldsSettings[FormFieldsWixIds.skillLevel]?.required || false}
-        options={formFieldsSettings[FormFieldsWixIds.skillLevel]?.stringOptions
-          ?.dropdownOptions?.options?.map((option: any) => ({
-            value: option.value || option.label || "",
-            label: option.label || option.value || ""
-          }))}
+        options={optionsFor(FormFieldsWixIds.skillLevel, [
+          { value: "individual", label: "Individual" },
+          { value: "group", label: "Group visit" },
+          { value: "member", label: "Member access" },
+        ])}
       />
     </div>
   </div>
 
-  <div
-    class="mb-8 border-t-8 border-[#14b8a6] rounded-lg pt-6 px-6 pb-6 bg-[#ffffff] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] mt-4 shadow-[#e5e7eb]"
-  >
-    <h2 class="text-xl font-medium mb-4 text-[#0d9488]">Contact Information</h2>
+  <div class="form-section form-section-secondary">
+    <div class="form-section-header">
+      <span>02</span>
+      <h2>Contact</h2>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <FormField
         id={FormFieldsWixIds.firstName}
-        label={formFieldsSettings[FormFieldsWixIds.firstName]?.stringOptions
-          ?.textInputOptions?.label || "First Name"}
+        label="First name"
         required={formFieldsSettings[FormFieldsWixIds.firstName]?.required || false}
       />
 
       <FormField
         id={FormFieldsWixIds.lastName}
-        label={formFieldsSettings[FormFieldsWixIds.lastName]?.stringOptions
-          ?.textInputOptions?.label || "Last Name"}
+        label="Last name"
         required={formFieldsSettings[FormFieldsWixIds.lastName]?.required || false}
       />
     </div>
@@ -98,52 +103,49 @@ const formFieldsSettings = wixForm.formFields
       <FormField
         type="email"
         id={FormFieldsWixIds.email}
-        label={formFieldsSettings[FormFieldsWixIds.email]?.stringOptions
-          ?.textInputOptions?.label || "Email"}
+        label="Email"
+        placeholder="name@example.com"
         required={formFieldsSettings[FormFieldsWixIds.email]?.required || false}
       />
 
       <FormField
         type="tel"
         id={FormFieldsWixIds.phone}
-        label={formFieldsSettings[FormFieldsWixIds.phone]?.stringOptions
-          ?.phoneInputOptions?.label || "Phone"}
+        label="Phone"
+        placeholder="+1 555 0100"
         required={formFieldsSettings[FormFieldsWixIds.phone]?.required || false}
       />
     </div>
   </div>
 
-  <div
-    class="mb-8 border-t-8 border-[#fb923c] rounded-lg pt-6 px-6 pb-6 bg-[#ffffff] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] shadow-[#e5e7eb] mt-4"
-  >
-    <h2 class="text-xl font-medium mb-4 text-[#f97316]">
-      Additional Information
-    </h2>
+  <div class="form-section form-section-tertiary">
+    <div class="form-section-header">
+      <span>03</span>
+      <h2>Visitor Notes</h2>
+    </div>
 
     <FormField
       type="textarea"
       id={FormFieldsWixIds.specialRequirements}
-      label={formFieldsSettings[FormFieldsWixIds.specialRequirements]
-        ?.stringOptions?.textInputOptions?.label || "Special Requirements"}
+      label="Access needs, guest count, or program interests"
+      placeholder="Let the visitor desk know how to prepare for you."
       required={formFieldsSettings[FormFieldsWixIds.specialRequirements]
         ?.required || false}
     />
   </div>
 
-  <!-- Error message container -->
   <div
     id="form-error"
-    class="hidden p-4 mb-4 text-[0.875rem] text-[#ffffff] rounded-md"
-    style="background-color: var(--error-color, #E21E1E);"
+    class="hidden form-error"
   >
   </div>
 
-  <div class="flex justify-between items-center mt-8">
+  <div class="form-actions">
     <div>
-      <span class="text-[0.75rem] text-[#6b7280]">* Required question</span>
+      <span class="form-required-note">* Required field</span>
     </div>
     <div>
-      <Button type="submit" variant="primary"> Submit </Button>
+      <Button type="submit" variant="primary">Reserve Visit</Button>
     </div>
   </div>
 </form>
@@ -182,7 +184,7 @@ const formFieldsSettings = wixForm.formFields
       // Set loading state
       if (submitButton) {
         submitButton.disabled = true;
-        submitButton.textContent = "Submitting...";
+        submitButton.textContent = "Reserving...";
       }
 
       try {
@@ -208,7 +210,7 @@ const formFieldsSettings = wixForm.formFields
         // Reset button state
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = "Submit";
+          submitButton.textContent = "Reserve Visit";
         }
       }
     });
