@@ -1,0 +1,5 @@
+# Civic Gallery
+
+This website is powered by Wix Headless.
+
+Learn more about building with Wix Headless at https://www.wix-headless.dev.
