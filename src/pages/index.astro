@@ -20,6 +20,11 @@ import TournamentRegistrationForm from "../components/TournamentRegistrationForm
           <a href="#registration" class="action-primary">Reserve a visit</a>
           <a href="#exhibitions" class="action-secondary">See events</a>
         </div>
+        <div class="hero-cues" aria-label="Visitor registration capabilities">
+          <span>Capacity-aware intake</span>
+          <span>Structured visitor records</span>
+          <span>Staff follow-up ready</span>
+        </div>
       </div>
 
       <div class="exhibition-wall" aria-label="Gallery exhibition preview">
@@ -31,6 +36,10 @@ import TournamentRegistrationForm from "../components/TournamentRegistrationForm
         </div>
         <div class="art-piece blue">
           <span>Curator Talk</span>
+        </div>
+        <div class="ticket-card">
+          <span>Timed Entry</span>
+          <strong>18:30</strong>
         </div>
         <div class="wall-caption">
           Wix Headless gives the gallery a custom visitor-facing site while
@@ -70,6 +79,12 @@ import TournamentRegistrationForm from "../components/TournamentRegistrationForm
           </div>
         </article>
       </div>
+      <div class="visitor-flow" aria-label="Visitor services workflow">
+        <span>Select event</span>
+        <span>Validate contact</span>
+        <span>Route confirmation</span>
+        <span>Prepare visitor desk</span>
+      </div>
     </div>
   </section>
 
@@ -87,9 +102,33 @@ import TournamentRegistrationForm from "../components/TournamentRegistrationForm
           <span>Visitor desk</span>
           <strong>Groups, members, and public programs</strong>
         </div>
+        <div class="capability-stack" aria-label="Form capabilities">
+          <div>
+            <span>Validation</span>
+            <strong>Required names and email format are checked before submission.</strong>
+          </div>
+          <div>
+            <span>Structured submission</span>
+            <strong>Event type, visit format, and access notes stay reviewable in Wix Forms.</strong>
+          </div>
+          <div>
+            <span>Success routing</span>
+            <strong>Confirmed visitors land on a gallery-branded receipt page.</strong>
+          </div>
+          <div>
+            <span>CRM-ready</span>
+            <strong>Staff can follow up by program type, member status, and contact details.</strong>
+          </div>
+        </div>
       </aside>
 
-      <TournamentRegistrationForm class="gallery-registration-form" />
+      <div class="registration-form-wrap">
+        <div class="form-status-strip">
+          <span>Wix Headless Forms</span>
+          <strong>Visitor services record</strong>
+        </div>
+        <TournamentRegistrationForm class="gallery-registration-form" />
+      </div>
     </div>
   </section>
 </Layout>

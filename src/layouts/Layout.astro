@@ -31,18 +31,20 @@ const {
           <nav class="header-nav" aria-label="Gallery navigation">
             <a href="/#exhibitions">Exhibitions</a>
             <a href="/#registration">Register</a>
+            <a href="https://github.com/wix-incubator/civicgallery" target="_blank" rel="noreferrer">GitHub</a>
           </nav>
         </div>
       </header>
-      
+
       <main class="grow">
         <slot />
       </main>
-      
+
       <footer class="site-footer mt-auto">
         <div class="site-shell footer-inner">
           <span>&copy; {new Date().getFullYear()} Civic Gallery</span>
-          <span>Event registration and visitor responses are handled with Wix Headless.</span>
+          <span>Powered by Wix Headless | Built with <a href="https://www.wix-headless.dev" target="_blank" rel="noreferrer">wix-headless.dev</a></span>
+          <a href="https://github.com/wix-incubator/civicgallery" target="_blank" rel="noreferrer">View source on GitHub</a>
         </div>
       </footer>
     </div>
