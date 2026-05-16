@@ -6,7 +6,7 @@ This website is powered by Wix Headless and built using [wix-headless.dev](https
 
 ## Links
 
-- Live site: [https://civic-gall-5d87642b-gonenj.wix-site-host.com](https://civic-gall-5d87642b-gonenj.wix-site-host.com)
+- Live site: [https://civic.gallery](https://civic.gallery/)
 - Source: [https://github.com/wix-incubator/civicgallery](https://github.com/wix-incubator/civicgallery)
 - Wix site ID: `3046fcc4-b139-4823-8d87-cf8d3c270434`
 
